@@ -79,5 +79,5 @@ fd_dealer_mgmt_fixed10/
 
 └── security/
 
-    └── ir.model.access.csv
+│   └── ir.model.access.csv
 		
