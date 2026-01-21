@@ -1,0 +1,62 @@
+
+<odoo>
+  <template id="exec_visit_report_template">
+    <t t-call="web.html_container">
+      <t t-foreach="docs" t-as="w">
+        <t t-call="web.external_layout">
+          <div class="page">
+            <h2 style="text-align:center;">SALES EXECUTIVE FIELD ACTIVITIES DASHBOARD <t t-out="w.date_from and w.date_from.strftime('%B %Y') or ''"/></h2>
+            <p><strong>Period:</strong> <t t-out="w.date_from"/> — <t t-out="w.date_to"/></p>
+            <table class="table table-sm" style="width:100%; border:1px solid #333; border-collapse:collapse;">
+              <thead>
+                <tr>
+                  <th style="border:1px solid #333;">Branch</th>
+                  <th style="border:1px solid #333;">Sales Executive Name</th>
+                  <th style="border:1px solid #333;">Dealer Name</th>
+                  <th style="border:1px solid #333;">Visit Date</th>
+                  <th style="border:1px solid #333;">Q-3 Target</th>
+                  <th style="border:1px solid #333;">Q-3 Till Date Achievement</th>
+                  <th style="border:1px solid #333;">Month Target (LIFTING)</th>
+                  <th style="border:1px solid #333;">Till Date Achievement (LIFTING)</th>
+                  <th style="border:1px solid #333;">Todays Lifting Plan</th>
+                  <th style="border:1px solid #333;">Todays Achievement (Lifting)</th>
+                  <th style="border:1px solid #333;">Details in branch todays activity</th>
+                  <th style="border:1px solid #333;">Details of Visit Activities</th>
+                  <th style="border:1px solid #333;">Order collection</th>
+                  <th style="border:1px solid #333;">Today's Customer Inquiry (Number)</th>
+                  <th style="border:1px solid #333;">Dealer Today's Physical Stock</th>
+                  <th style="border:1px solid #333;">Dealer Today's Retail</th>
+                  <th style="border:1px solid #333;">Dealer Till Date Retail</th>
+                </tr>
+              </thead>
+              <tbody>
+                <t t-set="lines" t-value="w._get_lines()"/>
+                <t t-foreach="lines" t-as="l">
+                  <tr>
+                    <td style="border:1px solid #333;" t-out="l['branch']"/>
+                    <td style="border:1px solid #333;" t-out="l['employee']"/>
+                    <td style="border:1px solid #333;" t-out="l['dealer']"/>
+                    <td style="border:1px solid #333;" t-out="l['visit_date']"/>
+                    <td style="border:1px solid #333; text-align:right;" t-out="l['q3_target']"/>
+                    <td style="border:1px solid #333; text-align:right;" t-out="l['q3_ach']"/>
+                    <td style="border:1px solid #333; text-align:right;" t-out="l['month_target']"/>
+                    <td style="border:1px solid #333; text-align:right;" t-out="l['month_ach']"/>
+                    <td style="border:1px solid #333; text-align:right;" t-out="l['today_plan']"/>
+                    <td style="border:1px solid #333; text-align:right;" t-out="l['today_ach']"/>
+                    <td style="border:1px solid #333;" t-out="l['branch_det']"/>
+                    <td style="border:1px solid #333;" t-out="l['visit_det']"/>
+                    <td style="border:1px solid #333; text-align:right;" t-out="l['order_collection']"/>
+                    <td style="border:1px solid #333; text-align:right;" t-out="l['inquiries']"/>
+                    <td style="border:1px solid #333; text-align:right;" t-out="l['stock_today']"/>
+                    <td style="border:1px solid #333; text-align:right;" t-out="l['retail_today']"/>
+                    <td style="border:1px solid #333; text-align:right;" t-out="l['retail_ttd']"/>
+                  </tr>
+                </t>
+              </tbody>
+            </table>
+          </div>
+        </t>
+      </t>
+    </t>
+  </template>
+</odoo>

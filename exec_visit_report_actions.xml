@@ -1,0 +1,11 @@
+
+<odoo>
+  <record id="action_exec_visit_report" model="ir.actions.report">
+    <field name="name">Executive-wise Field Visit Report</field>
+    <field name="model">exec.visit.report.wizard</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="report_name">fd_dealer_mgmt_fixed10.exec_visit_report_template</field>
+    <field name="report_file">fd_dealer_mgmt_fixed10.exec_visit_report_template</field>
+    <field name="print_report_name">(object.date_from and object.date_to) and ("Exec Field Visit %s_%s" % (object.date_from, object.date_to)) or "Exec Field Visit"</field>
+  </record>
+</odoo>

@@ -1,0 +1,56 @@
+
+<odoo>
+  <record id="view_dealer_visit_list" model="ir.ui.view">
+    <field name="name">dealer.visit.list</field>
+    <field name="model">dealer.visit</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="name"/>
+        <field name="visit_date"/>
+        <field name="branch_id"/>
+        <field name="employee_id"/>
+        <field name="dealer_id"/>
+        <field name="order_collection"/>
+        <field name="today_lifting_plan"/>
+        <field name="today_achievement_lifting"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="view_dealer_visit_form" model="ir.ui.view">
+    <field name="name">dealer.visit.form</field>
+    <field name="model">dealer.visit</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="name" readonly="1"/>
+            <field name="visit_date"/>
+            <field name="branch_id"/>
+            <field name="employee_id"/>
+            <field name="dealer_id"/>
+          </group>
+          <group string="Targets &amp; Achievements">
+            <field name="q3_target"/>
+            <field name="q3_till_date_achievement" readonly="1"/>
+            <field name="month_target_lifting"/>
+            <field name="month_till_date_achievement_lifting" readonly="1"/>
+            <field name="today_lifting_plan"/>
+            <field name="today_achievement_lifting"/>
+          </group>
+          <group string="Activities">
+            <field name="branch_activity_details" colspan="4"/>
+            <field name="visit_activity_details" colspan="4"/>
+          </group>
+          <group string="Commercials">
+            <field name="order_collection"/>
+            <field name="todays_customer_inquiry"/>
+            <field name="dealer_today_physical_stock"/>
+            <field name="dealer_today_retail"/>
+            <field name="dealer_till_date_retail"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+</odoo>

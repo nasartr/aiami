@@ -1,0 +1,9 @@
+
+<odoo>
+  <record id="seq_dealer_visit" model="ir.sequence">
+    <field name="name">Dealer Visit</field>
+    <field name="code">dealer.visit</field>
+    <field name="prefix">DV/%(year)s/</field>
+    <field name="padding">4</field>
+  </record>
+</odoo>

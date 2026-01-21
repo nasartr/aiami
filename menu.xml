@@ -1,0 +1,32 @@
+
+<odoo>
+  <menuitem id="menu_fd_root" name="Dealer Management" sequence="10"/>
+  <menuitem id="menu_fd_masters" name="Masters" parent="menu_fd_root" sequence="10"/>
+  <menuitem id="menu_fd_ops" name="Operations" parent="menu_fd_root" sequence="20"/>
+  <menuitem id="menu_fd_reports" name="Reports" parent="menu_fd_root" sequence="30"/>
+
+  <record id="action_fd_dealers" model="ir.actions.act_window">
+    <field name="name">Dealers</field>
+    <field name="res_model">res.partner</field>
+    <field name="view_mode">list,form</field>
+    <field name="domain">[("is_dealer","=",True)]</field>
+    <field name="context">{"default_is_dealer": True}</field>
+    <field name="views" eval="[(ref('fd_dealer_mgmt_fixed10.view_partner_tree_dealer_only'),'list'),(ref('base.view_partner_form'),'form')]"/>
+  </record>
+  <menuitem id="menu_fd_dealers" name="Dealers" parent="menu_fd_masters" action="action_fd_dealers" sequence="10"/>
+
+  <record id="action_dealer_visit" model="ir.actions.act_window">
+    <field name="name">Dealer Visits</field>
+    <field name="res_model">dealer.visit</field>
+    <field name="view_mode">list,form,graph,pivot</field>
+  </record>
+  <menuitem id="menu_fd_visits" name="Dealer Visits" parent="menu_fd_ops" action="action_dealer_visit" sequence="10"/>
+
+  <record id="action_exec_visit_report_wizard" model="ir.actions.act_window">
+    <field name="name">Executive-wise Field Visit</field>
+    <field name="res_model">exec.visit.report.wizard</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+  </record>
+  <menuitem id="menu_fd_exec_report" name="Executive-wise Field Visit" parent="menu_fd_reports" action="action_exec_visit_report_wizard"/>
+</odoo>
